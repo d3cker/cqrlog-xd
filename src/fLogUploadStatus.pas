@@ -276,13 +276,12 @@ begin
           Writeln('ResultCode: ',ResultCode);
           Writeln('-----------')
         end;
-
         if UpSuccess then
         begin
           Response := dmLogUpload.GetResultMessage(WhereToUpload,Response,ResultCode,ErrorCode);
           if (WhereToUpload = upQrzLog) and cqrini.ReadBool('OnlineLog','QrzUP',False) and ((Command = 'INSERT') or (Command = 'UPDATE')) then
           begin
-            if (Response='OK') then
+            if (LeftStr(Response,2)='OK') then
             begin
               tre := '.*OK \((\d+)\).*';
               qrzLogId := ReplaceRegExpr(tre, Response, '$1', True);
