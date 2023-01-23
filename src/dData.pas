@@ -509,6 +509,11 @@ begin
   mQ.SQL.Text := 'insert into upload_status (logname, id_log_changes) values ('+QuotedStr(C_HRDLOG)+',1)';
   if fDebugLevel>=1 then Writeln(mQ.SQL.Text);
   mQ.ExecSQL;
+
+  mQ.SQL.Text := 'insert into upload_status (logname, id_log_changes) values ('+QuotedStr(C_QRZLOG)+',1)';
+  if fDebugLevel>=1 then Writeln(mQ.SQL.Text);
+  mQ.ExecSQL;
+
   trmQ.Commit;
   }
 
@@ -2953,6 +2958,11 @@ begin
         Q1.SQL.Text := 'insert into upload_status (logname, id_log_changes) values ('+QuotedStr(C_HRDLOG)+',1)';
         if fDebugLevel>=1 then Writeln(Q1.SQL.Text);
         Q1.ExecSQL;
+
+        Q1.SQL.Text := 'insert into upload_status (logname, id_log_changes) values ('+QuotedStr(C_QRZLOG)+',1)';
+        if fDebugLevel>=1 then Writeln(Q1.SQL.Text);
+        Q1.ExecSQL;
+
         trQ1.Commit}
       end;
 
@@ -3688,6 +3698,10 @@ begin
   lQ.ExecSQL;
 
   lQ.SQL.Text := 'insert into upload_status (logname, id_log_changes) values ('+QuotedStr(C_HRDLOG)+',1)';
+  if fDebugLevel>=1 then Writeln(lQ.SQL.Text);
+  lQ.ExecSQL;
+
+  lQ.SQL.Text := 'insert into upload_status (logname, id_log_changes) values ('+QuotedStr(C_QRZLOG)+',1)';
   if fDebugLevel>=1 then Writeln(lQ.SQL.Text);
   lQ.ExecSQL;
 

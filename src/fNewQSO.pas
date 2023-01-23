@@ -84,6 +84,7 @@ type
     acRemoteModeADIF: TAction;
     acUploadToAll: TAction;
     acUploadToHrdLog: TAction;
+    acUploadToQrzLog: TAction;
     acUploadToClubLog: TAction;
     acUploadToHamQTH: TAction;
     acTune : TAction;
@@ -152,6 +153,8 @@ type
     MenuItem91: TMenuItem;
     MenuItem92 : TMenuItem;
     MenuItem93 : TMenuItem;
+    MenuItem100: TMenuItem;
+    MenuItem101: TMenuItem;
     mnuWsjtxmonitor: TMenuItem;
     mnuLocatorMap: TMenuItem;
     mnuRemoteModeWsjt: TMenuItem;
@@ -401,6 +404,7 @@ type
     procedure acUploadToClubLogExecute(Sender: TObject);
     procedure acUploadToHamQTHExecute(Sender: TObject);
     procedure acUploadToHrdLogExecute(Sender: TObject);
+    procedure acUploadToQrzLogExecute(Sender: TObject);
     procedure acPropExecute(Sender: TObject);
     procedure btnClearSatelliteClick(Sender : TObject);
     procedure cbRxLoChange(Sender: TObject);
@@ -2330,6 +2334,15 @@ begin
                     else begin
                       if cqrini.ReadBool('OnlineLog','HrUpOnline',False) then
                         frmLogUploadStatus.UploadDataToHrdLog
+                    end;
+                    WhatUpNext           := upQrzLog
+                  end;
+      upQrzLog  : begin
+                    if UploadAll then
+                      frmLogUploadStatus.UploadDataToQrzLog(UploadAll)
+                    else begin
+                      if cqrini.ReadBool('OnlineLog','QrzUpOnline',False) then
+                        frmLogUploadStatus.UploadDataToQrzLog
                     end;
                     tmrUploadAll.Enabled := False;
                     UploadAll            := False;
@@ -4596,6 +4609,11 @@ end;
 procedure TfrmNewQSO.acUploadToHrdLogExecute(Sender: TObject);
 begin
   frmLogUploadStatus.UploadDataToHrdLog
+end;
+
+procedure TfrmNewQSO.acUploadToQrzLogExecute(Sender: TObject);
+begin
+  frmLogUploadStatus.UploadDataToQrzLog
 end;
 
 procedure TfrmNewQSO.acPropExecute(Sender: TObject);
