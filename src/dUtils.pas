@@ -252,6 +252,7 @@ type
     function  StringToADIF(ATag, Text : String) : String;
     function  MyTrim(text : String) : String;
     function  ReplaceSpace(txt : String) : String;
+    function  ReplaceSemicolon(txt : String) : String;
     function  ReplaceEnter(txt : String) : String;
     function  MyStrToFloat(num : String) : Extended;
     function  ExtractQSLMgr(text : String) : String;
@@ -1718,6 +1719,21 @@ begin
       Result := Result + txt[i];
   end;
 end;
+
+function TdmUtils.ReplaceSemicolon(txt: string): string;
+var
+  i: integer;
+begin
+  Result := '';
+  for i := 1 to length(txt) do
+  begin
+    if txt[i] = ';' then
+      Result := Result + '%3B'
+    else
+      Result := Result + txt[i];
+  end;
+end;
+
 
 function TdmUtils.ReplaceEnter(txt: string): string;
 var

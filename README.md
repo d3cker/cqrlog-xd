@@ -1,3 +1,16 @@
+What is CQRLOG-XD?
+------------------
+
+An update to CQRLOG that adds support for QRZ.com QSO upload created by phl0 / DF2ET:
+![Link to phl0 repo](https://github.com/phl0/cqrlog)
+
+Additionally this XD version has some bugfixes applied:
+- Upload and Delete from QRZ.com
+- QRZ.com visibility in config dialog
+- Clublog URL
+![Link to phl0 repo](https://cqrlog.com/images/users/ok2cqr.png)
+
+
 What is CQRLOG?
 ---------------
 

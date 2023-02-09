@@ -9700,22 +9700,6 @@ object frmPreferences: TfrmPreferences
           Caption = 'color to show information in status upload window'
         end
       end
-      object chkCloseAfterUpload: TCheckBox
-        Left = 12
-        Height = 23
-        Top = 544
-        Width = 451
-        Caption = 'Close the "Status of log upload" window after successful upload'
-        TabOrder = 3
-      end
-      object chkIgnoreLoTW: TCheckBox
-        Left = 13
-        Height = 23
-        Top = 576
-        Width = 413
-        Caption = 'Ignore changes caused by LoTW/eQSL upload or download'
-        TabOrder = 4
-      end
       object GroupBox47: TGroupBox
         Left = 13
         Height = 168
@@ -9724,7 +9708,7 @@ object frmPreferences: TfrmPreferences
         Caption = ' QRZ.com'
         ClientHeight = 142
         ClientWidth = 563
-        TabOrder = 5
+        TabOrder = 4
         object chkQrzUpEnabled: TCheckBox
           Left = 7
           Height = 23
@@ -9802,6 +9786,23 @@ object frmPreferences: TfrmPreferences
           Caption = 'color to show information in status upload window'
           ParentColor = False
         end
+      end
+
+      object chkCloseAfterUpload: TCheckBox
+        Left = 12
+        Height = 23
+        Top = 724
+        Width = 451
+        Caption = 'Close the "Status of log upload" window after successful upload'
+        TabOrder = 3
+      end
+      object chkIgnoreLoTW: TCheckBox
+        Left = 13
+        Height = 23
+        Top = 756
+        Width = 413
+        Caption = 'Ignore changes caused by LoTW/eQSL upload or download'
+        TabOrder = 5
       end
     end
     object tabCondx: TTabSheet
