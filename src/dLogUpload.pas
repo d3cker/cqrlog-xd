@@ -70,7 +70,7 @@ var
 implementation
   {$R *.lfm}
 
-uses dData, dDXCluster, uMyIni;
+uses dData, dUtils, dDXCluster, uMyIni;
 
 procedure TdmLogUpload.DataModuleCreate(Sender: TObject);
 var
@@ -566,6 +566,7 @@ var
   adif    : String;
   qsodate : String;
   time_on : String;
+  qrz_adif: String;
 begin
   Q2.Close;
   if trQ2.Active then trQ2.RollBack;
@@ -611,7 +612,8 @@ begin
                    end;
       upQrzLog  :  begin
                      data.Add('ACTION=INSERT');
-                     data.Add('ADIF='+adif)
+                     qrz_adif:= dmUtils.ReplaceSemicolon(adif);
+                     data.Add('ADIF='+qrz_adif)
                    end;
     end //case
   finally
