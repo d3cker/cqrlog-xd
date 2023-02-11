@@ -66,7 +66,7 @@ install:
 	install    -v -m 0644 src/changelog.html $(datadir)/changelog.html
 	install    -v -m 0644 tools/cqrlog.1.gz $(sharedir)/man/man1/cqrlog.1.gz
 deb:
-	dpkg-buildpackage -rfakeroot -i -I
+	dpkg-buildpackage -b -rfakeroot -i -I -us -uc
 deb_src:
 	dpkg-buildpackage -rfakeroot -i -I -S
 debug:
